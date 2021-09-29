@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Screen :input="this.input" />
+    <Buttons @input-append="inputAppend" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Screen from './components/Screen';
+import Buttons from './components/Buttons';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Screen,
+    Buttons
+  },
+  data() {
+    return {
+      input: ''
+      }
+  },
+  methods: {
+    inputAppend(character) {
+      this.input+= character;
+    }
   }
 }
 </script>
